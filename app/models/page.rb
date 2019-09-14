@@ -1,6 +1,4 @@
 class Page < ApplicationRecord
   translates :title, :content
-
-  rails_admin do
-  end
+  accepts_nested_attributes_for :translations, allow_destroy: true
 end

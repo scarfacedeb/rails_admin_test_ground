@@ -1,5 +1,6 @@
-RailsAdmin.config do |config|
+# frozen_string_literal: true
 
+RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
@@ -37,5 +38,20 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  config.included_models = ['Page', 'Page::Translation']
+
+  config.model 'Page' do
+    configure :slug, :text
+    configure :translations, :globalize_tabs
+  end
+
+  config.model 'Page::Translation' do
+    visible false
+    configure :locale, :hidden do
+      help ''
+    end
+    include_fields :locale, :title, :content
   end
 end

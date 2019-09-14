@@ -40,14 +40,16 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.included_models = ['Page', 'Page::Translation']
+  config.included_models = ['Cms::Page', 'Cms::Page::Translation']
 
-  config.model 'Page' do
+  config.model 'Cms::Page' do
     configure :slug, :text
-    configure :translations, :globalize_tabs
+    configure :translations, :globalize_tabs do
+      build_if_missing true
+    end
   end
 
-  config.model 'Page::Translation' do
+  config.model 'Cms::Page::Translation' do
     visible false
     configure :locale, :hidden do
       help ''

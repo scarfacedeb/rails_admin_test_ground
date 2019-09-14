@@ -9,12 +9,14 @@ gem 'puma', '~> 3.11'
 gem 'webpacker', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'rails_admin', '~> 2.0'
 gem 'globalize', '~> 5.0'
+gem 'rails_admin', '~> 2.0'
+gem 'rails_admin_globalize_field', '~> 1.0'
+
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do

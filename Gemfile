@@ -9,6 +9,8 @@ gem 'puma', '~> 3.11'
 gem 'webpacker', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem "mini_magick"
+
 gem 'globalize', '~> 5.0'
 gem 'rails_admin', '~> 2.0'
 gem 'rails_admin_globalize_field', '~> 1.0'

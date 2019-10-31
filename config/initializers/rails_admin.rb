@@ -40,13 +40,14 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.included_models = ['Cms::Page', 'Cms::Page::Translation']
+  config.included_models = ['Cms::Page', 'Cms::Page::Translation', 'Comment']
 
   config.model 'Cms::Page' do
-    configure :slug, :text
+    configure :preview, :active_storage
     configure :translations, :globalize_tabs do
       build_if_missing true
     end
+    include_fields :slug, :preview, :translations, :comments
   end
 
   config.model 'Cms::Page::Translation' do
@@ -54,6 +55,7 @@ RailsAdmin.config do |config|
     configure :locale, :hidden do
       help ''
     end
-    include_fields :locale, :title, :content
+    configure :image, :active_storage
+    include_fields :locale, :title, :content, :image
   end
 end
